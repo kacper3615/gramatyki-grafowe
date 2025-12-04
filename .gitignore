@@ -20,7 +20,8 @@ build/
 
 # Test outputs
 tests/outputs/*.png
-*.png
+tests/test_p0/outputs/*.png
+productions/p0/outputs/*.png
 
 # OS
 .DS_Store

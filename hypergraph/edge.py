@@ -18,6 +18,16 @@ class Edge:
             self.x = None
             self.y = None
 
+    @property
+    def is_border(self):
+        """Alias for B attribute for backward compatibility."""
+        return self.B
+
+    @is_border.setter
+    def is_border(self, value):
+        """Setter for is_border to update B attribute."""
+        self.B = value
+
     def is_hyperedge(self):
         return len(self.nodes) > 2
 

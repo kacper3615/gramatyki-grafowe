@@ -33,7 +33,6 @@ gramatyki-grafowe/
 │   └── p0/
 │       ├── p0.py           # Production P0 (mark element for refinement)
 │       ├── example.py      # Example script for P0
-│       ├── RAPORT_P0.md    # Report for P0
 │       └── outputs/        # Visualization outputs for P0
 ├── tests/                  # Unit tests
 │   └── test_p0/

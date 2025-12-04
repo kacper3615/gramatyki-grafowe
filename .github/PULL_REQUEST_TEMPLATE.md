@@ -1,16 +1,16 @@
-## Productions
+### Productions
 
 - **P[N]**: [Brief description]
 - **P[M]**: [Brief description]
 
-## Authors
+### Authors
 
 @username1, @username2
 
-## Description
+### Description
 
 [What do these productions do and how they transform the graph]
 
-## Result
+### Result
 
 ![Result](tests/test_p[N]/outputs/result.png)

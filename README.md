@@ -1,0 +1,221 @@
+# Hypergraph Grammar Model for PolyDPG Method
+
+### **AGH University of Science and Technology, Kraków**
+
+_Data Science - Graph Grammars - Group 4_
+
+## Overview
+
+This project implements mesh refinement operations using hypergraph grammar productions for the High-order Polygonal Discontinuous Petrov-Galerkin (PolyDPG) method. The system supports refinement of quadrilateral, pentagonal, hexagonal, and septagonal elements while naturally handling hanging nodes.
+
+## Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd gramatyki-grafowe
+
+# Install dependencies
+pip install matplotlib numpy
+```
+
+## Project Structure
+
+```
+gramatyki-grafowe/
+├── hypergraph/             # Core hypergraph classes
+│   ├── node.py             # Vertex representation (x, y, z coordinates)
+│   ├── edge.py             # Edge and hyperedge representation
+│   └── hypergraph.py       # Main graph class with visualization
+├── productions/            # Grammar productions
+│   ├── production_base.py  # Base class for all productions
+│   └── p0.py               # Production P0 (mark element for refinement)
+├── tests/                  # Unit tests
+│   └── test_p0/
+│       ├── test_p0.py      # P0 comprehensive tests (17 tests)
+│       └── outputs/        # Visualization outputs
+└── assignment.pdf  # Detailed specification
+```
+
+## Running Tests
+
+```bash
+# Run all tests
+python3 -m unittest discover tests
+
+# Run specific production tests
+python3 -m unittest tests.test_p0.test_p0 -v
+
+# Run from test directory
+cd tests/test_p0
+python3 test_p0.py
+```
+
+## Implementation Status
+
+### ✅ Implemented Productions
+
+- **P0**: Mark quadrilateral element for refinement (R: 0 → 1)
+  - Full implementation with isomorphism checking
+  - 17 comprehensive unit tests covering all evaluation criteria
+  - Visualization examples
+  - Example script: [example_p0.py](example_p0.py)
+
+### 🔄 To Be Implemented
+
+Production pairs assigned to team members:
+
+1. **P1 & P5**: Mark edges for breaking (quadrilateral & pentagonal)
+2. **P2 & P6**: Break shared edges (already broken by neighbor)
+3. **P3 & P7**: Break shared edges (not yet broken)
+4. **P4 & P8**: Break boundary edges
+5. **P9 & P10**: Mark elements for refinement (hexagonal & septagonal)
+6. **P11 & P12**: Break elements
+7. **P13 & P14**: Mark and break septagonal elements
+
+See [assignment.pdf](assignment.pdf) for detailed specifications.
+
+---
+
+## How to Contribute
+
+### Setting Up Your Development Environment
+
+1. **Fork and clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/gramatyki-grafowe.git
+   cd gramatyki-grafowe
+   ```
+
+2. **Create a branch for your production pair**
+
+   ```bash
+   git checkout -b feature/pN-pM  # Example for PN and PM whe N and M are your production numbers
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install matplotlib numpy
+   ```
+
+### Creating a New Production
+
+Follow these steps to implement a new production (e.g., P1):
+
+#### Step 1: Create the Production Class
+
+Create a new file `productions/pN.py`:
+
+#### Step 2: Update `productions/__init__.py`
+
+```python
+from productions.p0 import P0
+from productions.p1 import P1  # Add your new production
+
+__all__ = ['P0', 'PN']  # <-- Export it
+```
+
+#### Step 3: Create Comprehensive Tests
+
+Create `tests/test_pN/test_pN.py` following the **evaluation criteria** from slides 33-37:
+
+```python
+import unittest
+import os
+from hypergraph.hypergraph import HyperGraph
+from productions import P1
+
+
+class TestPN(unittest.TestCase):
+
+    def setUp(self):
+        self.graph = HyperGraph()
+        self.production = PN()
+
+    def test_can_apply_to_marked_quadrilateral(self):
+        """Test PN can be applied to quadrilateral with R=1."""
+        pass
+
+    def test_cannot_apply_unmarked_quadrilateral(self):
+        """Test PN cannot be applied when R=0."""
+        pass
+
+    def test_cannot_apply_missing_node(self):
+        """Test PN cannot be applied when node is missing."""
+        pass
+
+    # ...
+```
+
+### Submitting Your Work
+
+1. **Ensure all tests pass**
+
+   ```bash
+   python3 -m unittest tests.test_pN.test_pN -v
+   ```
+
+2. **Commit your changes**
+
+   ```bash
+   git add productions/pN.py tests/test_pN/
+   git commit -m "feat: add PN"
+   ```
+
+3. **Push to your branch**
+
+   ```bash
+   git push origin feature/pN-pM
+   ```
+
+4. **Create a Pull Request**
+   - Include visualization outputs in `tests/test_pN/outputs/`
+   - Reference the production specification from the PDF
+   - List all tests that pass
+   - Add result image
+
+---
+
+## FAQ
+
+**Q: How do I visualize my graph?**
+
+```python
+graph.visualize("output.png")
+```
+
+**Q: How do I check if my production can be applied?**
+
+```python
+can_apply, matched = production.can_apply(graph)
+if can_apply:
+    result = production.apply(graph, matched)
+```
+
+**Q: What coordinate system is used?**
+
+- Standard Cartesian (x, y) for 2D meshes
+- Z coordinate available for 3D extensions
+
+**Q: How many tests should I write?**
+
+- Minimum: Cover all evaluation criteria (slides 33-37)
+- P0 has 17 tests as reference
+- Aim for comprehensive coverage
+
+**Q: Can I modify the base classes?**
+
+- Discuss with the team first
+- Document any changes
+- Ensure backward compatibility
+
+---
+
+## License
+
+This project is part of academic coursework at AGH University of Science and Technology.
+
+## Contact
+
+For questions or issues, please open a GitHub issue or contact the project coordinators.

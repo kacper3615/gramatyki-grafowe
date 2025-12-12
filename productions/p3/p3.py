@@ -1,5 +1,4 @@
 from productions.production_base import Production
-import math
 
 
 class P3(Production):
@@ -12,36 +11,13 @@ class P3(Production):
 
     def __init__(self):
         super().__init__(name="P3", description="Break shared edge marked for refinement")
-        # fraction of the edge length to offset the midpoint perpendicularly
-        # Assumption: move midpoint by 10% of the edge length perpendicular to the edge
-        self.offset_ratio = 0.25
 
     def _midpoint(self, n1, n2):
         return ( (n1.x + n2.x) / 2.0, (n1.y + n2.y) / 2.0 )
 
-    def _offset_midpoint(self, n1, n2):
-        """Return the midpoint shifted perpendicularly by offset_ratio * edge_length.
-
-        Uses trigonometry to compute a unit perpendicular vector and shifts the midpoint
-        in that direction by offset = offset_ratio * length(n1,n2).
-        """
-        mx, my = self._midpoint(n1, n2)
-        dx = n2.x - n1.x
-        dy = n2.y - n1.y
-        length = math.hypot(dx, dy)
-        if length == 0:
-            return mx, my
-
-        # Unit perpendicular vector (rotate (dx,dy) by 90 degrees)
-        ux = -dy / length
-        uy = dx / length
-
-        offset = self.offset_ratio * length
-        return mx + ux * offset, my + uy * offset
-
     def _has_midpoint_node(self, graph, n1, n2):
         # compute the perpendicularly shifted midpoint used when creating hanging nodes
-        mx, my = self._offset_midpoint(n1, n2)
+        mx, my = self._midpoint(n1, n2)
         tol = 1e-6
         for node in graph.nodes:
             if node.is_hanging and abs(node.x - mx) <= tol and abs(node.y - my) <= tol:
@@ -103,10 +79,11 @@ class P3(Production):
         n1, n2 = matched_elements["nodes"]
 
         # compute midpoint coordinates
-        mx, my = self._offset_midpoint(n1, n2)
+        mx, my = self._midpoint(n1, n2)
 
         # create hanging midpoint node
         mid = graph.add_node(mx, my, is_hanging=True)
+        mid.z = (n1.z + n2.z) / 2.0
 
         # add two new edges; preserve original is_border flag
         e1 = graph.add_edge(n1, mid, is_border=edge.is_border)
@@ -121,7 +98,7 @@ class P3(Production):
         # Mark the original edge as no longer marked for refinement
         edge.R = 0
 
-        print(f"[{self.name}] Broke edge between {n1} and {n2} into two edges with midpoint {mid} (original edge kept, offset_ratio={self.offset_ratio})")
+        print(f"[{self.name}] Broke edge between {n1} and {n2} into two edges with midpoint {mid} (original edge kept)")
 
         return {
             "original_edge": edge,

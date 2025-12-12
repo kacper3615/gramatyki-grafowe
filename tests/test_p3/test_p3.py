@@ -55,6 +55,8 @@ class TestP3(unittest.TestCase):
         n1 = self.graph.add_node(0, 0)
         n2 = self.graph.add_node(2, 0)
         n3 = self.graph.add_node(2, 1)
+        n1.z = 5.0
+        n2.z = 2.0
 
         e_shared = self.graph.add_edge(n1, n2, is_border=False)
         e_shared.R = 1
@@ -82,7 +84,8 @@ class TestP3(unittest.TestCase):
 
         # midpoint coordinates
         self.assertEqual(mid.x, 1.0)
-        self.assertEqual(mid.y, 0.5)
+        self.assertEqual(mid.y, 0.0)
+        self.assertEqual(mid.z, 3.5)
 
     def test_cannot_apply_if_already_broken(self):
         n1 = self.graph.add_node(0, 0)

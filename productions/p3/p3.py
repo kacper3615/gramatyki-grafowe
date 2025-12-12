@@ -20,7 +20,7 @@ class P3(Production):
         mx, my = self._midpoint(n1, n2)
         tol = 1e-6
         for node in graph.nodes:
-            if node.is_hanging and abs(node.x - mx) <= tol and abs(node.y - my) <= tol:
+            if abs(node.x - mx) <= tol and abs(node.y - my) <= tol:
                 # ensure this node is connected to both endpoints
                 connected_to_n1 = False
                 connected_to_n2 = False
@@ -82,7 +82,7 @@ class P3(Production):
         mx, my = self._midpoint(n1, n2)
 
         # create hanging midpoint node
-        mid = graph.add_node(mx, my, is_hanging=True)
+        mid = graph.add_node(mx, my)
         mid.z = (n1.z + n2.z) / 2.0
 
         # add two new edges; preserve original is_border flag

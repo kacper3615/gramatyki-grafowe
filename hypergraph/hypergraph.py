@@ -10,7 +10,7 @@ class HyperGraph:
         self.edges = []
 
     def add_node(self, x, y, label="V"):
-        node = Node(x, y, label)
+        node = Node(x, y, label=label)
         self.nodes.append(node)
         return node
 

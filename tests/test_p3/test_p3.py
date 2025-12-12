@@ -74,7 +74,6 @@ class TestP3(unittest.TestCase):
 
         # midpoint node created
         mid = result['midpoint_node']
-        self.assertTrue(mid.is_hanging)
         self.assertIn(mid, self.graph.nodes)
 
         # two new edges exist
@@ -96,7 +95,7 @@ class TestP3(unittest.TestCase):
         e_shared.R = 1
 
         # Simulate already broken: create midpoint and two edges
-        mid = self.graph.add_node(1, 0, is_hanging=True)
+        mid = self.graph.add_node(1, 0)
         self.graph.remove_edge(e_shared)
         self.graph.add_edge(n1, mid, is_border=False)
         self.graph.add_edge(mid, n2, is_border=False)

@@ -63,9 +63,9 @@ for i in range(5):
 # add one hanging node connected to each of pentagon node
 center_x, center_y = 0.5, 0.55
 for node in nodes_2:
-    hx = center_x + 1.3 * (node.x - center_x)
-    hy = center_y + 1.3 * (node.y - center_y)
-    h = graph_2.add_node(hx, hy, is_hanging=True)
+    hx = center_x + 1.5 * (node.x - center_x)
+    hy = center_y + 1.5 * (node.y - center_y)
+    h = graph_2.add_node(hx, hy)
     graph_2.add_edge(node, h, label="E")
 
 p2 = graph_2.add_hyperedge(nodes_2, label="P")
@@ -122,3 +122,65 @@ if can_apply_3:
     production.apply(graph_3, matched_3)
 
 graph_3.visualize(os.path.join(output_dir, "example_3_p7_after.png"))
+
+
+
+# Example 4 - pentagon with additional 2 quadrangle region
+
+graph_4 = HyperGraph()
+
+cords_4 = [(0.1, 0.1), (0.1, 0.5), (0.5, 0.5), (0.9, 0.3), (0.5, 0.1)]
+nodes_4 = []
+for y, x in cords_4:
+    nodes_4.append(graph_4.add_node(x, y))
+
+edges_4 = []
+for i in range(5):
+    n1 = nodes_4[i]
+    n2 = nodes_4[(i + 1) % 5]
+    e4 = graph_4.add_edge(n1, n2, label="E")
+    e4.R = 0
+    if i in [4, 3, 0]: e4.B = 1
+    edges_4.append(e4)
+
+p4 = graph_4.add_hyperedge(nodes_4, label="P")
+p4.R = 1
+
+n1 = graph_4.add_node(0.8, 0.8)
+n2 = graph_4.add_node(0.9, 0.5)
+n3 = nodes_4[2] 
+n4 = nodes_4[3] 
+
+e = graph_4.add_edge(n1, n2, label="E")
+e.B = 1
+edges_4.append(e)
+edges_4.append(graph_4.add_edge(n2, n3, label="E"))
+e = graph_4.add_edge(n1, n4, label="E")
+e.B = 1
+edges_4.append(e)
+
+nodes_quad_1 = [n1, n2, n3, n4]
+p4 = graph_4.add_hyperedge(nodes_quad_1, label="Q")
+
+n1 = graph_4.add_node(0.9, 0.1)
+n2 = nodes_4[1] 
+n3 = nodes_4[2]
+n4 = nodes_quad_1[1]
+
+e = graph_4.add_edge(n1, n2, label="E")
+e.B = 1
+edges_4.append(e)
+e = graph_4.add_edge(n1, n4, label="E")
+e.B = 1
+edges_4.append(e)
+edges_4.append(graph_4.add_edge(n3, n4, label="E"))
+
+nodes_quad_2 = [n1, n2, n3, n4]
+p4 = graph_4.add_hyperedge(nodes_quad_2, label="Q")
+
+graph_4.visualize(os.path.join(output_dir, "example_4_p7_before.png"))
+can_apply_4, matched_4 = production.can_apply(graph_4)
+if can_apply_4:
+    production.apply(graph_4, matched_4)
+
+graph_4.visualize(os.path.join(output_dir, "example_4_p7_after.png"))

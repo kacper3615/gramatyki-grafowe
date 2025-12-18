@@ -55,12 +55,13 @@ class HyperGraph:
                 # Edge color: red for marked, black for rest
                 if edge.R:
                     color = 'red'
+
                 else:
                     color = 'black'
 
                 plt.scatter(edge.x, edge.y, s=700, c='white', marker='s',
                             edgecolors='black', linewidths=1.5, zorder=14)
-                
+
                 label_text = f"{edge.label}\nR={edge.R}" if edge.R else edge.label
                 plt.text(edge.x, edge.y, label_text, ha='center', va='center',
                          fontsize=12, fontweight='bold', zorder=15)
@@ -99,9 +100,10 @@ class HyperGraph:
 
         # Add legend
         legend_elements = [
-            Patch(facecolor='black', edgecolor='black', label='Hyperedge (R=0)'),
-            Patch(facecolor='red', edgecolor='red', label='Hyperedge (R=1)'),
+            Patch(facecolor='black', edgecolor='black', label='Edge (R=0)'),
+            Patch(facecolor='red', edgecolor='red', label='Edge (R=1)'),
             Patch(facecolor='lightblue', edgecolor='black', label='Node'),
+
         ]
         plt.legend(handles=legend_elements, loc='upper right', fontsize=10)
 

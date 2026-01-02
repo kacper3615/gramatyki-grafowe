@@ -1,23 +1,17 @@
 from productions.production_base import Production
 
 class P1(Production):
-    """Production P0: Mark quadrilateral element for refinement.
-    It sets value of attribute R of the hyperedge with label Q to 1
+    """Production P1: Marks edges of quadrilateral element, marked
+        for refinement, for breaking.
     """
 
     def __init__(self):
         super().__init__(
-            name="P0",
-            description="Mark quadrilateral element for refinement"
+            name="P1",
+            description="Marks edges of quadrilateral element, marked for refinement, for breaking."
         )
 
     def can_apply(self, graph):
-        """Check if P1 can be applied to the graph.
-
-        Args:
-            refinement_criterion: External condition (e.g., error estimate) to decide if element should be refined
-        """
-
         hyperedge = None
 
         for edge in graph.edges:
@@ -40,6 +34,9 @@ class P1(Production):
                 break
 
             edges_found.append(found_edge)
+        
+        if len(edges_found) != 4:
+            return False, None
           
         return True, {
             'hyperedge': hyperedge,
@@ -51,12 +48,8 @@ class P1(Production):
         """Apply P1 to mark the quadrilateral for refinement."""
         edges = matched_elements['edges']
 
-        # Mark the hyperedge for refinement
         for edge in edges:
             edge.R = 1
-
-        print(f"[{self.name}] Marked quadrilateral hyperedge for refinement (R: 0 -> 1)")
-        print(f"[{self.name}] Hyperedge: {edges}")
 
         return {
             'marked_hyperedge': matched_elements['hyperedge'],

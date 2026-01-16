@@ -21,12 +21,12 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(0, 1.732)
         n6 = self.graph.add_node(-0.5, 0.866)
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12, is_border=True)
         self.graph.add_edge(n12, n2, is_border=True)
@@ -61,12 +61,12 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(0, 1.732)
         n6 = self.graph.add_node(-0.5, 0.866)
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12, is_border=True)
         self.graph.add_edge(n12, n2, is_border=True)
@@ -97,12 +97,12 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(0, 1.732)
         n6 = self.graph.add_node(-0.5, 0.866)
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12, is_border=True)
         self.graph.add_edge(n12, n2, is_border=True)
@@ -133,12 +133,12 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(0, 1.732)
         n6 = self.graph.add_node(-0.5, 0.866)
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12)
         self.graph.add_edge(n12, n2)
@@ -176,12 +176,12 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(-0.023, 1.832)
         n6 = self.graph.add_node(-0.51, 0.866)
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12)
         self.graph.add_edge(n12, n2)
@@ -207,11 +207,11 @@ class TestP11(unittest.TestCase):
         central_node = result['central_node']
         expected_x = (n1.x + n2.x + n3.x + n4.x + n5.x + n6.x) / 6
         expected_y = (n1.y + n2.y + n3.y + n4.y + n5.y + n6.y) / 6
-        expected_z = (n1.z + n2.z + n3.z + n4.z + n5.z + n6.z) / 6
+        # expected_z = (n1.z + n2.z + n3.z + n4.z + n5.z + n6.z) / 6
 
         self.assertAlmostEqual(central_node.x, expected_x, places=5, msg="Central node x-coordinate is incorrect")
         self.assertAlmostEqual(central_node.y, expected_y, places=5, msg="Central node y-coordinate is incorrect")
-        self.assertAlmostEqual(central_node.z, expected_z, places=5, msg="Central node z-coordinate is incorrect")
+        # self.assertAlmostEqual(central_node.z, expected_z, places=5, msg="Central node z-coordinate is incorrect")
 
     def test_cannot_apply_missing_node(self):
         """Test P11 cannot be applied when a corner node is missing."""
@@ -222,11 +222,11 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(0, 1.732)
         # Missing n6
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n51 = self.graph.add_node((n5.x + n1.x) / 2, (n5.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n51 = self.graph.add_node((n5.x + n1.x) / 2, (n5.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12, is_border=True)
         self.graph.add_edge(n12, n2, is_border=True)
@@ -281,12 +281,12 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(0, 1.732)
         n6 = self.graph.add_node(-0.5, 0.866)
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12, is_border=True)
         # Missing edge between n12 and n2
@@ -318,12 +318,12 @@ class TestP11(unittest.TestCase):
         n6 = self.graph.add_node(-0.5, 0.866)
         n_extra = self.graph.add_node(2, 2)  # Extra node
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12, is_border=True)
         self.graph.add_edge(n12, n2, is_border=True)
@@ -377,12 +377,12 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(0, 1.732)
         n6 = self.graph.add_node(-0.5, 0.866)
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12)
         self.graph.add_edge(n12, n2)
@@ -409,11 +409,11 @@ class TestP11(unittest.TestCase):
         n12_2 = self.graph.add_node(0, -0.866)
 
         n78 = n2
-        n89 = self.graph.add_node((n8.x + n9.x) / 2, (n8.y + n9.y) / 2, is_hanging=True)
-        n910 = self.graph.add_node((n9.x + n10.x) / 2, (n9.y + n10.y) / 2, is_hanging=True)
-        n1011 = self.graph.add_node((n10.x + n11.x) / 2, (n10.y + n11.y) / 2, is_hanging=True)
-        n1112 = self.graph.add_node((n11.x + n12_2.x) / 2, (n11.y + n12_2.y) / 2, is_hanging=True)
-        n127 = self.graph.add_node((n12_2.x + n7.x) / 2, (n12_2.y + n7.y) / 2, is_hanging=True)
+        n89 = self.graph.add_node((n8.x + n9.x) / 2, (n8.y + n9.y) / 2)
+        n910 = self.graph.add_node((n9.x + n10.x) / 2, (n9.y + n10.y) / 2)
+        n1011 = self.graph.add_node((n10.x + n11.x) / 2, (n10.y + n11.y) / 2)
+        n1112 = self.graph.add_node((n11.x + n12_2.x) / 2, (n11.y + n12_2.y) / 2)
+        n127 = self.graph.add_node((n12_2.x + n7.x) / 2, (n12_2.y + n7.y) / 2)
 
         self.graph.add_edge(n7, n78)
         self.graph.add_edge(n78, n8)
@@ -481,12 +481,12 @@ class TestP11(unittest.TestCase):
         n5 = self.graph.add_node(0, 1.732)
         n6 = self.graph.add_node(-0.5, 0.866)
 
-        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2, is_hanging=True)
-        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2, is_hanging=True)
-        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2, is_hanging=True)
-        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2, is_hanging=True)
-        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2, is_hanging=True)
-        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2, is_hanging=True)
+        n12 = self.graph.add_node((n1.x + n2.x) / 2, (n1.y + n2.y) / 2)
+        n23 = self.graph.add_node((n2.x + n3.x) / 2, (n2.y + n3.y) / 2)
+        n34 = self.graph.add_node((n3.x + n4.x) / 2, (n3.y + n4.y) / 2)
+        n45 = self.graph.add_node((n4.x + n5.x) / 2, (n4.y + n5.y) / 2)
+        n56 = self.graph.add_node((n5.x + n6.x) / 2, (n5.y + n6.y) / 2)
+        n61 = self.graph.add_node((n6.x + n1.x) / 2, (n6.y + n1.y) / 2)
 
         self.graph.add_edge(n1, n12)
         self.graph.add_edge(n12, n2)

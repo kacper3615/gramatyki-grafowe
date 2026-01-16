@@ -21,7 +21,12 @@ build/
 # Test outputs
 tests/outputs/*.png
 tests/test_p0/outputs/*.png
+tests/test_p11/outputs/*.png
+tests/test_p12/outputs/*.png
 productions/p0/outputs/*.png
+productions/p11/outputs/*.png
+productions/p12/outputs/*.png
+**/outputs/*
 
 # OS
 .DS_Store

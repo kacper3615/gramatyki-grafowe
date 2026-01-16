@@ -6,7 +6,7 @@ _Data Science - Graph Grammars - Group 4_
 
 ## Overview
 
-This project implements mesh refinement operations using hypergraph grammar productions for the High-order Polygonal Discontinuous Petrov-Galerkin (PolyDPG) method. The system supports refinement of quadrilateral, pentagonal, hexagonal, and septagonal elements while naturally handling hanging nodes.
+This project implements mesh refinement operations using hypergraph grammar productions for the High-order Polygonal Discontinuous Petrov-Galerkin (PolyDPG) method. The system supports refinement of quadrilateral, pentagonal, hexagonal, and septagonal elements.
 
 ## Installation
 

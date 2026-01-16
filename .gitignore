@@ -22,7 +22,6 @@ build/
 tests/outputs/*.png
 tests/test_p0/outputs/*.png
 productions/p0/outputs/*.png
-productions/p6/productions/p6/outputs/*.png
 
 # OS
 .DS_Store

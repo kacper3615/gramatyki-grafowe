@@ -111,7 +111,7 @@ class P11(Production):
             x=sum(hexa_nodes[i].x for i in convex_hull_nodes_indices) / 6,
             y=sum(hexa_nodes[i].y for i in convex_hull_nodes_indices) / 6,
             # z=sum(hexa_nodes[i].z for i in convex_hull_nodes_indices) / 6,
-            is_hanging=False,
+            # is_hanging=False,
             label="V"
         )
 
@@ -140,7 +140,7 @@ class P11(Production):
             graph.add_edge(n1, n2, is_border=False, label="E")
 
             #* Mark hanging node as non-hanging
-            hexa_nodes[n2_idx].is_hanging = False            
+            # hexa_nodes[n2_idx].is_hanging = False
 
         # IV. Remove the original hyperedge
         graph.remove_edge(hexa_hyperedge)

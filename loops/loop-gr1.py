@@ -37,48 +37,6 @@ def find_node_by_position(x, y, tolerance=0.1):
             return node
     return None
 
-
-def find_target_node():
-    """Find the node that belongs to both top trapezoid and right hexagon and is on the border."""
-    # Looking for node that:
-    # 1. Belongs to a Q hyperedge (trapezoid) 
-    # 2. Belongs to an S hyperedge (hexagon)
-    # 3. Is on the border (has at least one border edge)
-    # 4. Has y > 0 (top part)
-    # 5. Has x > 0 (right part)
-    
-    for node in g.nodes:
-        if node.x <= 0 or node.y <= 0:
-            continue
-            
-        # Check if node is on border
-        is_border_node = False
-        for edge in g.edges:
-            if not edge.is_hyperedge() and edge.B and node in edge.nodes:
-                is_border_node = True
-                break
-        
-        if not is_border_node:
-            continue
-        
-        # Check if belongs to both Q and S hyperedges
-        belongs_to_Q = False
-        belongs_to_S = False
-        
-        for edge in g.edges:
-            if edge.is_hyperedge() and node in edge.nodes:
-                if edge.label == "Q":
-                    belongs_to_Q = True
-                elif edge.label == "S":
-                    belongs_to_S = True
-        
-        if belongs_to_Q and belongs_to_S:
-            print(f"Found target node: {node.label} at ({node.x:.2f}, {node.y:.2f})")
-            return node
-    
-    return None
-
-
 def distance(node1, node2):
     """Calculate Euclidean distance between two nodes."""
     return math.sqrt((node1.x - node2.x)**2 + (node1.y - node2.y)**2)
@@ -210,24 +168,6 @@ def apply_while(productions):
         if all_failed:
             break
         all_failed = True
-
-def mark_element_for_refinement(label="Q", index=0):
-    """Mark a hyperedge for refinement (set R=1)."""
-    global ITERATION
-    
-    count = 0
-    for edge in g.edges:
-        if edge.is_hyperedge() and edge.label == label:
-            if count == index:
-                edge.R = 1
-                print(f"[{ITERATION}] Marked {label} hyperedge {index} for refinement (R=1)")
-                g.visualize(os.path.join(output_dir, f"{ITERATION:02d}-mark-R1.png"))
-                ITERATION += 1
-                return True
-            count += 1
-    
-    print(f"Could not find {label} hyperedge at index {index}")
-    return False
 
 # ============ Production Pipeline ============
 

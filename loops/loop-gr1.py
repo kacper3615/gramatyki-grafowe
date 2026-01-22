@@ -237,10 +237,15 @@ if TARGET_NODE:
 else:
     print("\nWarning: Target node not found, using default indexing\n")
 
+
+prods_chain = [P10(), P4(), P3(), P11(), P1(), P4(), P2(), P3(), P5()]
+
 apply_n_draw(P9())
 apply_n_draw(P0())
-apply_while([P10(), P4(), P3(), P11(), P1(), P4(), P2(), P3(), P5()])
+apply_while(prods_chain)
 apply_n_draw(P0())
+apply_n_draw(P0())
+apply_while(prods_chain)
 
 print(f"\nGenerated {ITERATION} iterations in {output_dir}")
 print("Done!")

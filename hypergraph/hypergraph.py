@@ -45,7 +45,7 @@ class HyperGraph:
             print(f"  {edge}")
 
     def visualize(self, filename=None):
-        plt.figure(figsize=(10, 10))
+        plt.figure(figsize=(16, 16))
 
         for edge in self.edges:
             if not edge.is_hyperedge():
@@ -94,6 +94,20 @@ class HyperGraph:
                         linewidths=2, zorder=9)
             plt.text(node.x, node.y, node.label, ha='center', va='center',
                      fontsize=10, fontweight='bold', zorder=10)
+
+        # Calculate bounds with margin
+        if self.nodes:
+            all_x = [n.x for n in self.nodes]
+            all_y = [n.y for n in self.nodes]
+            min_x, max_x = min(all_x), max(all_x)
+            min_y, max_y = min(all_y), max(all_y)
+            
+            # Add 30% margin
+            margin_x = (max_x - min_x) * 0.3 or 1
+            margin_y = (max_y - min_y) * 0.3 or 1
+            
+            plt.xlim(min_x - margin_x, max_x + margin_x)
+            plt.ylim(min_y - margin_y, max_y + margin_y)
 
         plt.axis('equal')
         plt.grid(True, alpha=0.3)

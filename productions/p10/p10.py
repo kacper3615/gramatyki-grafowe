@@ -40,6 +40,9 @@ class P10(Production):
                 found_edge = graph.get_edge_between(node1, node2)
                 if found_edge is None or found_edge.label != "E":
                     break
+                # Check if edge is not already marked
+                if found_edge.R == 1:
+                    break
                 edges_found.append(found_edge)
 
             if len(edges_found) == 6:

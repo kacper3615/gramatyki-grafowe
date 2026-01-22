@@ -11,7 +11,7 @@ class P1(Production):
             description="Marks edges of quadrilateral element, marked for refinement, for breaking."
         )
 
-    def can_apply(self, graph):
+    def can_apply(self, graph, **kwargs):
         hyperedge = None
 
         for edge in graph.edges:
@@ -31,6 +31,10 @@ class P1(Production):
             found_edge = graph.get_edge_between(node1, node2)
 
             if found_edge is None:
+                break
+            
+            # Check if edge is not already marked
+            if found_edge.R == 1:
                 break
 
             edges_found.append(found_edge)

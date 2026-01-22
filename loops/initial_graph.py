@@ -12,8 +12,9 @@ os.makedirs(output_dir, exist_ok=True)
 def create_initial_graph():
     graph = HyperGraph()
     
-    rect_width = 2.0
-    rect_height = 1.0
+    scale = 5.0
+    rect_width = 2.0 * scale
+    rect_height = 1.0 * scale
     
     c1 = graph.add_node(-rect_width/2, -rect_height/2, label="V")
     c2 = graph.add_node(rect_width/2, -rect_height/2, label="V")
@@ -27,8 +28,8 @@ def create_initial_graph():
     
     q1 = graph.add_hyperedge([c1, c2, c3, c4], label="Q")
     
-    trap_height = 0.8
-    trap_base_extra = 0.5
+    trap_height = 0.8 * scale
+    trap_base_extra = 0.5 * scale
     
     bt1 = graph.add_node(-rect_width/2 - trap_base_extra, -rect_height/2 - trap_height, label="V")
     bt2 = graph.add_node(rect_width/2 + trap_base_extra, -rect_height/2 - trap_height, label="V")
@@ -44,7 +45,7 @@ def create_initial_graph():
     
     q3 = graph.add_hyperedge([c4, tt1, tt2, c3], label="Q")
     
-    hex_width = 0.8
+    hex_width = 0.8 * scale
     
     lh1 = graph.add_node(-rect_width/2 - hex_width - trap_base_extra, -rect_height/2 - trap_height/2, label="V")
     lh2 = graph.add_node(-rect_width/2 - hex_width - trap_base_extra, rect_height/2 + trap_height/2, label="V")
@@ -55,7 +56,7 @@ def create_initial_graph():
     graph.add_edge(tt1, c4, is_border=False, label="E")
     graph.add_edge(c1, bt1, is_border=False, label="E")
     
-    q4 = graph.add_hyperedge([bt1, lh1, lh2, tt1, c4, c1], label="Q")
+    s1 = graph.add_hyperedge([bt1, lh1, lh2, tt1, c4, c1], label="S")
     
     rh1 = graph.add_node(rect_width/2 + hex_width + trap_base_extra, -rect_height/2 - trap_height/2, label="V")
     rh2 = graph.add_node(rect_width/2 + hex_width + trap_base_extra, rect_height/2 + trap_height/2, label="V")
@@ -66,7 +67,7 @@ def create_initial_graph():
     graph.add_edge(rh2, tt2, is_border=True, label="E")
     graph.add_edge(tt2, c3, is_border=False, label="E")
     
-    q5 = graph.add_hyperedge([c2, bt2, rh1, rh2, tt2, c3], label="Q")
+    s2 = graph.add_hyperedge([c2, bt2, rh1, rh2, tt2, c3], label="S")
     
     return graph
 
